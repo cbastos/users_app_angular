@@ -1,0 +1,23 @@
+<div *ngIf="users | async as userList">
+	<fieldset *ngFor="let user of userList | sortBy: 'name'">
+		<legend>{{ user.name }} (id: {{ user.id}})</legend>
+		<p><b>User name</b>: {{ user.username }}</p>
+		<p><b>Email</b>: {{ user.email }}</p>
+		<p><b>Phone</b>: {{ user.phone }}</p>
+		<p><b>Website</b>: {{ user.website }}</p>
+		<p>
+			<b>Company</b>:
+			<b>Name</b> {{ user.company.name }},
+			<b>catch phrase</b> {{user.company.catchPhrase}},
+			<b>bs</b> {{user.company.bs}}
+		</p>
+		<p>
+			<b>Address</b>:
+			<b>Street</b> {{ user.address.street }}
+			<b>Suite</b>{{ user.address.suite }}
+			<b>City</b>{{ user.address.city }}
+			<b>Zip code</b> {{ user.address.zipcode }}
+			(<b>Geo: lat {{ user.address.geo.lat }} lng {{ user.address.geo.lng }}</b>)
+		</p>
+	</fieldset>
+</div>
